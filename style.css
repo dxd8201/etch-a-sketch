@@ -31,8 +31,9 @@
 }
 
 .grid-item {
-    height: 1em;
-    width: 1em;
+    height: 2em;
+    width: 2em;
+    flex: 1;
     text-align: center;
     border: 1px solid black;
 }

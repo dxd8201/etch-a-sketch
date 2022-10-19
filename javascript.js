@@ -7,25 +7,41 @@ const gridSize = document.getElementById('gridSize');
 const sliderOutput = document.getElementById('sliderOutput');
 let items = document.querySelectorAll('.grid-item');
 
+let value = sliderOutput.value;
 
-
-gridSize.textContent = sliderOutput.value;
-sliderOutput.oninput = function () {
-    gridSize.textContent = this.value;
-}
 
 
 function generateGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
-
+    
     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement('div');
         container.appendChild(cell).className = "grid-item";
     }
     hoverBlack();
-
 };
+
+gridSize.textContent = `${sliderOutput.value} X ${sliderOutput.value}` ;
+sliderOutput.oninput = function () {
+    let divsToRemove = document.querySelectorAll('.grid-item');
+    value = `${this.value}`;
+    gridSize.textContent = `${this.value} X ${this.value}`;
+    container.style.setProperty('--grid-rows', value);
+    container.style.setProperty('--grid-cols', value);
+
+    //removes old grid
+    for (i = divsToRemove.length - 1; i >= 0; i--) {
+        divsToRemove[i].remove();
+    }
+
+    // creates a new grid
+    for (i = 0; i < (value * value); i++) {
+        let cell = document.createElement('div');
+        container.appendChild(cell).className = "grid-item";
+    }
+    hoverBlack();
+}
 
 function hoverBlack() {
     let items = document.querySelectorAll('.grid-item');
@@ -33,9 +49,7 @@ function hoverBlack() {
         item.addEventListener("mouseover", () => {
             console.log("mouse in");
             item.style.backgroundColor = `black`;
-        });
-
-        
+        }); 
     });
 };
     
@@ -77,6 +91,4 @@ clearBtn.addEventListener('click', () => {
     });
 });
 
-
-
-generateGrid(16, 16);
+generateGrid(value, value);
