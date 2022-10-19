@@ -1,5 +1,18 @@
-const container = document.getElementById('container');
+const container = document.getElementById('gridContainer');
+const pen = document.getElementById('pen');
+const rainbow = document.getElementById('rainbow');
+const eraser = document.getElementById('eraser');
+const clearBtn = document.getElementById('clearBtn');
+const gridSize = document.getElementById('gridSize');
+const sliderOutput = document.getElementById('sliderOutput');
+let items = document.querySelectorAll('.grid-item');
 
+
+
+gridSize.textContent = sliderOutput.value;
+sliderOutput.oninput = function () {
+    gridSize.textContent = this.value;
+}
 
 
 function generateGrid(rows, cols) {
@@ -8,13 +21,13 @@ function generateGrid(rows, cols) {
 
     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement('div');
-        cell.innerText = (i + 1);
         container.appendChild(cell).className = "grid-item";
     }
-    hoverListen();
+    hoverBlack();
+
 };
 
-function hoverListen() {
+function hoverBlack() {
     let items = document.querySelectorAll('.grid-item');
     items.forEach(item => {
         item.addEventListener("mouseover", () => {
@@ -22,14 +35,48 @@ function hoverListen() {
             item.style.backgroundColor = `black`;
         });
 
-        item.addEventListener("mouseout", () => {
-            item.style.backgroundColor = 'white';
-        });
+        
     });
 };
+    
+pen.addEventListener('click', () => {
+    let items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            console.log("mouse in");
+            item.style.backgroundColor = `black`;
+        });
+    });
+    
+});
 
-function randomColor() {
-    return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
-  };
+rainbow.addEventListener('click', () => {
+    let items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            console.log("mouse in");
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            item.style.backgroundColor = "#" + randomColor;
+        });
+    });
+});
 
-  generateGrid(16, 16);
+eraser.addEventListener('click', () => {
+    let items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = 'white';
+        });  
+    });
+})
+
+clearBtn.addEventListener('click', () => {
+    let items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        item.style.backgroundColor = 'white';   
+    });
+});
+
+
+
+generateGrid(16, 16);
