@@ -44,6 +44,9 @@ body {
     justify-content: center;
     width: 50rem;
     height: 50rem;
+
+    background-image: url("./media/3757/480/3757-boop-eidolon-of-the-dojo-nobg.png");
+    background-size: cover;
 }
 
 #gridContainer {

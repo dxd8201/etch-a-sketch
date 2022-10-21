@@ -3,6 +3,7 @@ const pen = document.getElementById('pen');
 const rainbow = document.getElementById('rainbow');
 const eraser = document.getElementById('eraser');
 const clearBtn = document.getElementById('clearBtn');
+const secretBtn = document.getElementById('secret');
 const gridSize = document.getElementById('gridSize');
 const sliderOutput = document.getElementById('sliderOutput');
 let items = document.querySelectorAll('.grid-item');
@@ -57,11 +58,9 @@ pen.addEventListener('click', () => {
     let items = document.querySelectorAll('.grid-item');
     items.forEach(item => {
         item.addEventListener("mouseover", () => {
-            console.log("mouse in");
             item.style.backgroundColor = `black`;
-        });
+        });     
     });
-    
 });
 
 rainbow.addEventListener('click', () => {
@@ -88,6 +87,15 @@ clearBtn.addEventListener('click', () => {
     let items = document.querySelectorAll('.grid-item');
     items.forEach(item => {
         item.style.backgroundColor = 'white';   
+    });
+});
+
+secretBtn.addEventListener('click', () => {
+    let items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = 'rgba(255, 255, 255, 0)';   
+        }); 
     });
 });
 
