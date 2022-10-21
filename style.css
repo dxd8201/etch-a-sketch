@@ -1,6 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
 :root {
     --grid-rows: 1;
     --grid-cols: 1;
+}
+
+body {
+    background-color: black;
+    font-family: 'Silkscreen', cursive;
 }
 
 /* ================ */
@@ -12,12 +26,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;    
+    gap: 1em;  
+    margin-top: 2rem;  
+}
+
+.headline {
+    color: white;
+    font-size: 4rem;
 }
 
 /* ================ */
 /* Grid section */
 /* ================ */
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    width: 50rem;
+    height: 50rem;
+}
 
 #gridContainer {
     display: grid;
@@ -25,29 +52,46 @@
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-.grid-container {
-    display: flex;
-    justify-content: center;
+.grid {
+    flex: 1;
+    /* overflow: auto; */
 }
 
 .grid-item {
-    height: 2em;
-    width: 2em;
-    flex: 1;
+    min-width: 0;
+    flex: 1 1 100%;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid white;
+    background-color: #fff;
 }
 
 /* ================ */
 /* Button section */
 /* ================ */
 
+button {
+    width: 12rem;
+    height: auto;
+    padding: .5rem;
+    border-style: none;
+    border-radius: 9px;
+    background-color: purple;
+    color: white;
+    transition: all .3s;
+    font-family: 'Silkscreen', cursive;
+}
+
+button:hover {
+    background-color: rgb(179, 2, 179);
+    box-shadow: 0px .5rem .5rem rgba(255, 255, 255, 0.151);
+}
+
 .button-container {
     display: flex;
-    background-color: red;
-    width: 24em;
+    /* width: 24em; */
     height: auto;
     justify-content: space-around;
+    gap: 2rem;
 }
 
 .slider-container {
@@ -56,6 +100,8 @@
     justify-content: center;
     align-items: center;
     gap: 1em;
+    font-size: 2rem;
+    color: white;
 }
 
 .slider {

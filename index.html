@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="style.css"> 
 </head>
@@ -13,13 +17,17 @@
 <body>
     <div class="container">
 
+        <div class="headline">
+            Etch-a-Sketch
+        </div>
+        
         <div class="grid-container">
             <div id="gridContainer" class="grid"></div>
         </div>
 
         <div class="button-container">
-            <button id="pen">Pen Mode</button>
-            <button id="rainbow">Rainbow Mode</button>
+            <button id="pen">Pen</button>
+            <button id="rainbow">Rainbow</button>
             <button id="eraser">Eraser</button>
             <button id="clearBtn">Clear</button>
         </div>
